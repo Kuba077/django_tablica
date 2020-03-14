@@ -5,8 +5,8 @@ from django.db import models
 
 class Post(models.Model):
     uzytkownik = models.ForeignKey(User, on_delete=models.CASCADE)
-    text = models.CharField(max_length=1024)
+    tresc = models.CharField(max_length=1024)
     data_dodania = models.DateField()
 
     def __str__(self):
-        return self.uzytkownik.username + ': ' + self.text
+        return self.uzytkownik.username + ': ' + self.tresc

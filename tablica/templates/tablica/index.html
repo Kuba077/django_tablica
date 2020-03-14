@@ -1,0 +1,5 @@
+<ol>
+    {% for post in posty %}
+        <li>{{ post.tresc }} {{ post.uzytkownik.username }} {{ post.data_dodania }}</li>
+    {% endfor %}
+</ol>
