@@ -1,5 +1,16 @@
-<ol>
+{% extends 'szablon.html' %}
+{% block tytul %} Django tablica{% endblock %}
+{% block naglowek %}Lista postów{% endblock %}
+{% block tresc %}
+    <ul class="list-group">
     {% for post in posty %}
-        <li>{{ post.tresc }} {{ post.uzytkownik.username }} {{ post.data_dodania }}</li>
+        <li class="list-group-item">
+            <b>{{ post.tresc }}</b>
+            <br>
+            {{ post.uzytkownik.username }}
+            <br>
+            {{ post.data_dodania }}
+        </li>
     {% endfor %}
-</ol>
+    </ul>
+{% endblock %}

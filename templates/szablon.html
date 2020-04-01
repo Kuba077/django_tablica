@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block tytul %}Django tablica{% endblock tytul %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Tablica</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url "tablica:post_lista" %}">Strona główna</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url "tablica:post_dodaj" %}">Dodaj post</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{% block naglowek %}Aplikacja Django{% endblock naglowek %}</h1>
+            {% if messages %}
+                <ul>
+                    {% for komunikat in messages %}
+                        <li>{{ komunikat }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Brak komunikatów</p>
+            {% endif %}
+            {% block tresc %} Aplikacja Django{% endblock tresc %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,5 +1,10 @@
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Dodaj">
-</form>
+{% extends 'szablon.html' %}
+{% block tytul %}Dodaj post{% endblock %}
+{% block naglowek %}Utwórz post{% endblock %}
+{% block tresc %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Dodaj">
+    </form>
+{% endblock %}
