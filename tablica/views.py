@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 # Create your views here.
 from django.utils import timezone
@@ -7,6 +8,7 @@ from tablica.forms import PostForm
 from tablica.models import Post
 
 
+@login_required
 def dodaj_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)

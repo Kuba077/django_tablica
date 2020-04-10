@@ -19,9 +19,21 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url "tablica:post_lista" %}">Strona główna</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url "tablica:post_dodaj" %}">Dodaj post</a>
-            </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "tablica:post_dodaj" %}">Dodaj post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "users:wyloguj" %}">Wyloguj się</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "users:rejestruj" %}">Zarejestruj się</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "users:loguj" %}">Zaloguj się</a>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </nav>

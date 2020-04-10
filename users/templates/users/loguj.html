@@ -1,0 +1,15 @@
+{% extends 'szablon.html' %}
+{% block tytul %}Użytkownicy{% endblock tytul %}
+{% block naglowek %}Logowanie{% endblock naglowek %}
+{% block tresc %}
+    {% if user.is_authenticated %}
+        <p>Jesteś już zalogowany jako {{ user.username }}</p>
+    {% else %}
+        {{ form.errors }}
+        <form action="." method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Zaloguj" class="btn waves-effect waves-light btn-primary">
+        </form>
+    {% endif %}
+{% endblock tresc %}
