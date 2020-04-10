@@ -41,15 +41,15 @@
     <div class="row">
         <div class="col">
             <h1>{% block naglowek %}Aplikacja Django{% endblock naglowek %}</h1>
+
             {% if messages %}
-                <ul>
-                    {% for komunikat in messages %}
-                        <li>{{ komunikat }}</li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>Brak komunikatów</p>
+                {% for komunikat in messages %}
+                    <div class="alert alert-success">
+                        {{ komunikat }}
+                    </div>
+                {% endfor %}
             {% endif %}
+
             {% block tresc %} Aplikacja Django{% endblock tresc %}
         </div>
     </div>

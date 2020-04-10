@@ -1,0 +1,10 @@
+{% extends 'szablon.html' %}
+{% block tytul %}Usun post{% endblock %}
+{% block naglowek %}Usuń post{% endblock %}
+{% block tresc %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>Usunąć post <strong>{{ object.tresc }}</strong>?</p>
+        <button class="btn btn-danger">Usuń</button>
+    </form>
+{% endblock %}
